@@ -1,0 +1,28 @@
+{% extends "dashboard/base.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row align-items-center justify-content-center">
+{% for guild in guilds %}
+
+	{% if guild.is_owner %}
+	<div class="col">
+		<div class="card mb-3 text-center bg-dark text-white" style="width: 18rem;">
+			{% if guild.icon_url %}
+			<img src="{{ guild.icon_url }}" class="card-img-top">
+			{% else %}
+			<img src="{{ url_for('static', filename='no-logo.png') }}" class="card-img-top">
+			{% endif %}
+			<div class="card-body">
+		    	<h5 class="card-title">{{ guild.name }}</h5>
+			    <a href="/guild/{{ guild.id }}" class="btn btn-primary">Configure</a>
+  			</div>
+		</div>
+	</div>
+	{% endif %}
+
+{% endfor %}
+	</div>
+</div>
+{% endblock %}

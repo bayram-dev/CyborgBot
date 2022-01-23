@@ -1,0 +1,35 @@
+{% extends "dashboard/base.html" %}
+
+{% block content %}
+<style >
+.h-divider{
+	margin-top:20px;
+	margin-bottom:20px;
+	height:1px;
+	width:100%;
+	border-top:1px solid white;
+}
+</style>
+
+
+<div class="container">
+	<form method="post">
+		<div class="align-items-center">
+			<div class="col mb-3">
+				<label for="prefix" class="form-label">prefix</label>
+				<input type="text" class="form-control" id="prefix" name="prefix" value="{{ settings['prefix'] }}">
+			</div>
+			<div class="col mb-3">
+				<label for="welcomeChannelId" class="form-label">Welcome channel</label>
+				<input type="text" class="form-control" id="welcomeChannelId" name="welcomeChannelId" value="{{ settings['welcomeChannelId'] }}">
+			</div>
+			<div class="col mb-3">
+				<label for="goodbyeChannelId" class="form-label">Goodbye channel</label>
+				<input type="text" class="form-control" id="goodbyeChannelId" name="goodbyeChannelId" value="{{ settings['goodbyeChannelId'] }}">
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+{% endblock %}
