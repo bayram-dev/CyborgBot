@@ -1,0 +1,81 @@
+{% extends "dashboard/base.html" %}
+
+{% block content %}
+
+<style type="text/css">
+.hidden{
+	opacity:0;
+}
+.visible{
+	opacity:1;
+}
+@media screen and (max-width: 768px) {
+  .h-divider {
+    margin-top: 2.5vw;
+    margin-bottom: 2.5vw;
+    width: 100%;
+    height: 1px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .h-divider {
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+    width: 100%;
+    height: 1px;
+  }
+}
+
+</style>
+
+<script>
+
+  window.onload = function()
+  {
+    window.scrollTo(0, 0);
+  }
+
+	jQuery(document).ready(function() {
+		jQuery('.animation').addClass("hidden").viewportChecker({
+			classToAdd: 'visible animate__animated animate__fadeInUp',
+			offset: 100
+		});
+	});
+  function scrollToFeatures() {
+    document.getElementById("feature").scrollIntoView();
+  }
+</script>
+
+<div class="container animation col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{{ url_for('static', filename='1626722318649.png') }}" class="d-block mx-lg-auto img-fluid" width="100%" height="100%" style="pointer-events: none;" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Cyborg - multifunctional discord bot</h1>
+        <p class="lead">Can customize your server by adding cool features like moderation, mini-games, music, leveling and so on. </p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Add to your server</button>
+          <button onclick="scrollToFeatures()" type="button" class="btn btn-outline-secondary btn-lg px-4">See the features</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container animation col-xxl-8 px-4 py-5" id="feature">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">high quality music</h1>
+        <p class="lead">Absolutely free for all servers. Stream music directly from YouTube. Other audio hosting services are coming soon.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        </div>
+      </div>
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{{ url_for('static', filename='1626723706702.png') }}" class="d-block mx-lg-auto img-fluid" width="100%" height="100%" style="pointer-events: none;" loading="lazy">
+      </div>
+
+    </div>
+  </div>
+
+
+{% endblock %}
